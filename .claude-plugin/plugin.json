@@ -1,0 +1,13 @@
+{
+  "name": "repo-skill-forge",
+  "description": "One request builds a short SKILL.md with your rules and red lines, feature docs read only on demand, and a monthly audit that keeps them true.",
+  "version": "1.0.0",
+  "author": {
+    "name": "7ji0",
+    "url": "https://github.com/7ji0"
+  },
+  "homepage": "https://github.com/7ji0/repo-skill-forge",
+  "repository": "https://github.com/7ji0/repo-skill-forge",
+  "license": "MIT",
+  "keywords": ["skills", "context-engineering", "memory", "claude-code"]
+}

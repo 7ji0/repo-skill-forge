@@ -1,0 +1,15 @@
+{
+  "name": "repo-skill-forge",
+  "description": "Build a lean, private-repo-only Claude skill for any project",
+  "owner": {
+    "name": "7ji0",
+    "url": "https://github.com/7ji0"
+  },
+  "plugins": [
+    {
+      "name": "repo-skill-forge",
+      "source": "./",
+      "description": "One request builds a short SKILL.md with your rules and red lines, feature docs read only on demand, and a monthly audit that keeps them true."
+    }
+  ]
+}

@@ -77,11 +77,20 @@ Measured on the project this tool was born from: a private family photo archive 
 
 **claude.ai / Claude apps:** download [`dist/repo-skill-forge.zip`](dist/repo-skill-forge.zip) and upload it in Claude's skills settings. Code execution must be enabled.
 
-**Claude Code:**
+**Claude Code (plugin, gets updates):** inside a session run
+```
+/plugin marketplace add 7ji0/repo-skill-forge
+/plugin install repo-skill-forge@repo-skill-forge
+```
+On Claude Code 2.1.275 or later, one line does both: `/plugin install repo-skill-forge --marketplace 7ji0/repo-skill-forge`
+
+**Claude Code (plain copy):**
 ```bash
 git clone --depth 1 https://github.com/7ji0/repo-skill-forge /tmp/rsf
 cp -r /tmp/rsf/skills/repo-skill-forge ~/.claude/skills/
 ```
+
+**With the open `skills` CLI** (Claude Code, Cursor, Codex and other agents): `npx skills add 7ji0/repo-skill-forge`
 
 **Other agents that read the Agent Skills format:** copy `skills/repo-skill-forge/` into their skills folder.
 

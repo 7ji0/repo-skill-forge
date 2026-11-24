@@ -25,9 +25,10 @@ Write the skill in the language the owner writes to you in. Templates: `template
 ## Step 1. Privacy gate (always first)
 
 Reference docs describe the code in detail: routes, tables, limits, security checks. In a public repository that is a map for attackers. Find out the visibility before writing anything:
-- `gh repo view OWNER/REPO --json visibility -q .visibility`, if `gh` is signed in; or
-- `curl -s -o /dev/null -w '%{http_code}' https://api.github.com/repos/OWNER/REPO`: `200` means anyone can see it (public); `404` means private or missing (the owner can still clone it: private).
-- Other hosts, or no answer: ask the owner.
+- `gh api repos/OWNER/REPO -q .private` (REST; prints `true` or `false`), or
+- `curl -s https://api.github.com/repos/OWNER/REPO | grep -m1 '"private"'`.
+- Read the `private` field itself, never the HTTP status: sandboxed agents often send requests through a proxy that adds the owner's credentials, so a private repo can answer `200`.
+- Other hosts, an error, or no `private` field: ask the owner.
 
 Then pick the **mode**:
 - **Mode A, private repo (recommended):** docs go in the repo at `docs/claude/` and are versioned with the code. Every commit that changes a feature updates its doc in the same commit.
@@ -39,7 +40,7 @@ Say which mode you chose and why in one line. Never switch a repo to Mode A beca
 
 Run `python3 scripts/scan.py REPO` (path relative to this skill's folder). In a few hundred tokens it reports the layout, big files, very long lines, platform hints (deploy, database, CI), test presence, folders never to open, and possible secrets (location and kind only).
 - If the repo has `CLAUDE.md` or `AGENTS.md`, read it: its rules move into the new SKILL.md.
-- If the owner already has a long skill for this repo, this is a **slim-down**: run `scripts/audit.py` on it first (Step 6 shows how) so stale entries are dropped, not copied.
+- If the owner already has a long skill for this repo, this is a **slim-down**: run `scripts/audit.py --repo REPO --docs EMPTY_DIR --skill OLD_SKILL.md` on it first (any empty folder for `--docs`) so stale entries are dropped, not copied.
 - Possible secrets: never copy them anywhere. Tell the owner to rotate any real key that is committed.
 
 ## Step 3. Ask the owner (one message, at most five questions)
