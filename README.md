@@ -8,7 +8,7 @@ One request builds a lean skill for your repository: a short `SKILL.md` with you
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Agent Skills](https://img.shields.io/badge/format-Agent%20Skills-8A2BE2)
-![Languages](https://img.shields.io/badge/skills%20in-English%20%7C%20العربية-green)
+![Languages](https://img.shields.io/badge/skills%20in-English%20%7C%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-green)
 
 [What it does](#what-it-does) · [Real numbers](#real-numbers) · [Install](#install) · [Use](#use) · [Privacy](#privacy-first) · [العربية](#بالعربية)
 
